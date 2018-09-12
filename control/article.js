@@ -146,54 +146,5 @@ exports.del = async ctx => {
                 message: err
             }
         })
-
     ctx.body = res
-
-    /* let uid
-
-    // 用户的 articleNum -= 1
-    // 删除文章对应的所有评论
-    // 被删除评论的用户表里的  commentNum -= 1
-
-    let res = {}
-
-    // 删除文章
-    await Article.deleteOne({_id}).exec(async err => {
-        if(err){
-            res = {
-                state: 0,
-                message: '删除失败'
-            }
-        }else{
-            await Article.findById(_id, (err, data) => {
-                if(err) return console.log(err)
-                uid = data.author
-            })
-        }
-    })
-
-    await User.updateOne({_id: uid}, {$inc: {articleNum: -1}})
-
-    // 删除所有评论
-    await Comment.find({article: _id}).then(async data => {
-        // data => array
-        let len = data.length
-        let i = 0
-        async function  deleteUser(){
-            if(i>len)return
-            const cId = data[i]._id
-            await Comment.deleteOne({_id: cId}).then(data => {
-                User.update({_id: data[i].from}, {$inc: {commentNum: -1}}, err => {
-                    if(err)return console.log(err)
-                    i++
-                })
-            })
-        }
-        await deleteUser()
-
-        res = {
-            state: 1,
-            message: '成功'
-        }
-    }) */
 }

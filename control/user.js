@@ -163,15 +163,14 @@ exports.userlist = async ctx => {
 // 后台 删除用户
 exports.del = async ctx => {
     // 用户 id
-    const uid = ctx.params.id
-
+    const _id = ctx.params.id
     // 拿到 userId 删除 user
     let res = {
         state: 1,
-        message: '成功'
+        message: '删除用户成功'
     }
-
-    await User.findById(uid)
+    // 被删除用户
+    await User.findById(_id)
         .then(data => data.remove())
         .catch(err => {
             res = {

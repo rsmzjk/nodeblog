@@ -77,32 +77,4 @@ exports.del = async ctx => {
         })
 
     ctx.body = res
-
-    /* const commentId = ctx.params.id
-    let isOK = true
-    // 文章的计数器 -1
-    let articleId, uid
-    // 删除评论
-    await Comment.findById(commentId, (err, data) => {
-        if(err){
-            console.log(err)
-            isOK = false
-            return
-        }else{
-            articleId = data.article
-            uid = data.from
-        }
-    })
-
-    await Article.updateOne({_id: articleId}, {$inc: {commentNum: -1}})
-
-    await User.updateOne({_id: uid}, {$inc: {commentNum: -1}})
-
-    await Comment.deleteOne({_id: commentId})
-    if (isOK) {
-        ctx.body = {
-            state: 1,
-            message: '删除成功'
-        }
-    } */
 }
